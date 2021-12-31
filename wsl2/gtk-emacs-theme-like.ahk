@@ -32,11 +32,87 @@ is_target()
 ;   IfWinActive,ahk_class SunAwtFrame
 ;     Return 1
 ;   IfWinActive,ahk_class Emacs ; NTEmacs
-;     Return 1  
+;     Return 1
 ;   IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
 ;     Return 1
   Return 0
 }
+
+; ~~~~~~~~~~~~~~~~~~~~~~MacKeyBind~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+; <Windows(command key)>z
+#z::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send ^z
+  Return
+
+; <Windows(command key)>a
+#a::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send ^a
+  Return
+
+  ; <Windows(command key)>c
+#c::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send ^c
+  Return
+
+; <Windows(command key)>v
+#v::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send ^v
+  Return
+
+; <Windows(command key)>f
+#f::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send ^f
+  Return
+
+
+; <Windows(command key)>s
+#s::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send ^s
+  Return
+
+#n::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send ^n
+  Return
+
+#x::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send ^x
+  Return
+
+#/::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send ^/
+  Return
+
+
+; ~~~~~~~~~~~~~~~~~~~~~~MacKeyBind~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 ;
 ; <ctrl>b
@@ -236,16 +312,6 @@ is_target()
     Send +^{Right}
   Return
 
-;
-; <ctrl>w
-; cut
-;
-^w::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    Send ^x
-  Return
 
 ;
 ; <ctrl>y
@@ -319,4 +385,20 @@ is_target()
     Send %A_ThisHotkey%
   Else
     Send ^a
+  Return
+
+;windowの位置を別画面に移すのではなく、文字選択を行頭にする
+#+Left::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send +{Home}
+  Return
+
+;windowの位置を別画面に移すのではなく、文字選択を行末にする
+#+Right::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send +{End}
   Return
