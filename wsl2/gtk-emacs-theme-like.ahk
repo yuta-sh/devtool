@@ -332,10 +332,17 @@ is_target()
   If is_target()
     Send %A_ThisHotkey%
   Else
-    Send {ShiftDown}{END}{SHIFTUP}
-    Sleep 50
-    Send {Del}
-    ;Send ^x
+    if ( WinActive("ahk_exe WindowsTerminal.exe") ){
+      Send {End}
+      Sleep 50
+      Send ^u
+    }else{
+      Send {ShiftDown}{END}{SHIFTUP}
+      Sleep 50
+      Send {Del}
+    }
+
+  
   Return
 
 ;
